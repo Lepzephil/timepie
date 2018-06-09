@@ -1,4 +1,4 @@
-# timepie
+# TimePie
 Welcome to Time Pie - a proactive time magagement application at the intersection of a guru and your mother.
 
 -- GRAPHIC FORTHCOMING: VENN DIAGRAM WITH GURU AND MOTHER OVERLAPING CIRCLES --
