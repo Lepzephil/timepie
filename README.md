@@ -1,7 +1,7 @@
 # TimePie
 Welcome to Time Pie - a proactive time magagement application at the intersection of a guru and your mother.
 
--- GRAPHIC FORTHCOMING: VENN DIAGRAM WITH GURU AND MOTHER OVERLAPING CIRCLES --
+![Alt text](https://github.com/Lepzephil/timepie/blob/master/docs/readme_grahpic.png)
 
 By "proactive" we mean the application notices when you're not on top of your game, and gives you a nudge. You don't have to tell it what you're doing. It gets in YOUR face when you're NOT telling it what you're doing.
 
