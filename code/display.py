@@ -1,6 +1,33 @@
-import tkinter
+import Tkinter as tkinter
+import matplotlib
+matplotlib.use("TkAgg")
+from matplotlib.backends.backend_tkagg import (
+    FigureCanvasTkAgg, NavigationToolbar2TkAgg)
+import matplotlib.pyplot as plt
+import pandas as pd
+
+slice_dict = pd.read_csv("data/slice_dict.csv")
+slice_size = pd.read_csv("data/slice_size.csv")
+labels = list(slice_dict["name"])
+values = list(slice_size["size"])
+
+values_percentages = [x / float(sum(values)) for x in values]
 
 root = tkinter.Tk()
+
+actualFigure = plt.figure(figsize = (10,10))
+actualFigure.suptitle("Time allocation throughout the week", fontsize = 22)
+
+explode = list()
+for k in labels:
+    explode.append(0.1)
+
+pie, text= plt.pie(values_percentages, labels=labels, explode = explode, shadow=True)
+# plt.legend(pie, labels, loc = "upper corner")
+
+canvas = FigureCanvasTkAgg(actualFigure, master = root)
+canvas.get_tk_widget().pack()
+canvas.show()
 
 # 2 - placing buttons on the screen
 # topFrame=tkinter.Frame(root)
@@ -47,26 +74,25 @@ root = tkinter.Tk()
 
 
 # 6 - my first a class
+# class add_time():
+#
+#     def __init__(self, master):
+#         frame = tkinter.Frame(master)
+#         frame.pack()
+#
+#         self.add_time = tkinter.Button(frame, text="I did yoga", command=self.add_time_unit)
+#         self.add_time.pack()
+#
+#         self.quit_buttom = tkinter.Button(frame, text="Don't mother me today", command=frame.quit)
+#         self.quit_buttom.pack()
+#
+#
+#     def add_time_unit(self):
+#         print('Added one time unit!')
 
-class add_time():
+# add_yoga_time = add_time(root)
 
-    def __init__(self, master):
-        frame = tkinter.Frame(master)
-        frame.pack()
-
-        self.add_time = tkinter.Button(frame, text="I did yoga", command=self.add_time_unit)
-        self.add_time.pack()
-
-        self.quit_buttom = tkinter.Button(frame, text="Don't mother me today", command=frame.quit)
-        self.quit_buttom.pack()
-
-
-    def add_time_unit(self):
-        print('Added one time unit!')
-
-add_yoga_time = add_time(root)
-
-root.mainloop()
+# root.mainloop()
 
 
 
